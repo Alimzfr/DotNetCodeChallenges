@@ -1,11 +1,16 @@
-﻿namespace DotNetCodeChallenges.Services;
+﻿using System.Data.SqlTypes;
+
+namespace DotNetCodeChallenges.Services;
 
 /// <summary>
-/// Finding all substring without repeated characters
+/// Finding substrings
 /// </summary>
 public class Substrings
 {
-    public int FindSubstrings(string input)
+    /// <summary>
+    /// Finding all substring without repeated characters
+    /// </summary>
+    public int FindSubstringsWithoutRepeatedCharacters(string input)
     {
         var length = input.Length;
         var substrings = new List<string>();
