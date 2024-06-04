@@ -6,9 +6,9 @@ namespace DotNetCodeChallenges.Performance;
 [MemoryDiagnoser]
 public class FizzBuzzBenchmarks
 {
-    private const int N = 10000;
+    private const int _n = 10000;
     private readonly FizzBuzz _fizzBuzz = new();
 
     [Benchmark]
-    public string[] DoFizzBuzz() => _fizzBuzz.DoFizzBuzz(N);
+    public string[] DoFizzBuzz() => _fizzBuzz.DoFizzBuzz(_n);
 }

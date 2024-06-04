@@ -2,8 +2,13 @@
 
 public class FizzBuzz
 {
-    public string[] DoFizzBuzz(int n)
+    public string[] DoFizzBuzz(uint n)
     {
+        if (n == 0)
+        {
+            return new string[] { };
+        }
+
         var result = new string[n];
 
         var index = 0;

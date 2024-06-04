@@ -1,6 +1,4 @@
-﻿using System.Data.SqlTypes;
-
-namespace DotNetCodeChallenges.Services;
+﻿namespace DotNetCodeChallenges.Services;
 
 /// <summary>
 /// Finding substrings
@@ -10,8 +8,13 @@ public class Substrings
     /// <summary>
     /// Finding all substring without repeated characters
     /// </summary>
-    public int FindSubstringsWithoutRepeatedCharacters(string input)
+    public IEnumerable<string> FindSubstringsWithoutRepeatedCharacters(string input)
     {
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            throw new ArgumentNullException(nameof(input), "Input string mustn't be null or empty!");
+        }
+
         var length = input.Length;
         var substrings = new List<string>();
         for (var i = 0; i < length; i++)
@@ -19,12 +22,13 @@ public class Substrings
             for (var j = 1; j <= length - i; j++)
             {
                 var substring = input.Substring(i, j);
-                if (substring.Count() == substring.ToCharArray().Distinct().Count())
+                if (substring.Length == substring.ToCharArray().Distinct().Count())
                 {
                     substrings.Add(substring);
                 }
             }
         }
-        return substrings.Count;
+
+        return substrings;
     }
 }
